@@ -1,0 +1,76 @@
+{
+  "flights": [
+    {
+      "id": "barcelona_london",
+      "from": "Barcelona",
+      "to":"London",
+      "departure":"11 Apr,19",
+      "return":"20 Apr,19",
+      "price": 23
+    },
+    {
+      "id": "barcelona_paris",
+      "from": "Barcelona",
+      "to":"Paris",
+      "departure":"12 Apr,19",
+      "return":"20 Apr,19",
+      "price": 62
+    },  
+    {
+      "id": "barcelona_vienna",
+      "from": "Barcelona",
+      "to":"Vienna",
+      "departure":"15 Apr,19",
+      "return":"25 Apr,19",
+      "price": 53
+    },
+    {
+      "id": "barcelona_amsterdam",
+      "from": "Barcelona",
+      "to":"Amsterdam",
+      "departure":"19 Apr,19",
+      "return":"26 Apr,19",
+      "price": 57
+    },
+    {
+      "id": "madrid_london",
+      "from": "Madrid",
+      "to":"London",
+      "departure":"09 Apr,19",
+      "return":"20 Apr,19",
+      "price": 200
+    },
+    {
+      "id": "belgrade_prague",
+      "from": "Belgrade",
+      "to":"Prague",
+      "departure":"19 Apr,19",
+      "return":"26 Apr,19",
+      "price": 297
+    },
+    {
+      "id": "belgrade_wroclaw",
+      "from": "Belgrade",
+      "to":"Wroclaw",
+      "departure":"09 June,19",
+      "return":"26 June,19",
+      "price": 176
+    },
+    {
+      "id": "nis_milano",
+      "from": "Nis",
+      "to":"Milano",
+      "departure":"19 Apr,19",
+      "return":"26 Apr,19",
+      "price": 35
+    },
+    {
+      "id": "nis_munich",
+      "from": "Nis",
+      "to":"Munich",
+      "departure":"12 Apr,19",
+      "return":"22 Apr,19",
+      "price": 230
+    }
+  ]
+}
