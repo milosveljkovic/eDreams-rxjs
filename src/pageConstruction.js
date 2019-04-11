@@ -73,5 +73,20 @@ function createDataContainer(bodyDiv){
     dataContainer.className="dataContainer";
     bodyDiv.appendChild(dataContainer);
 
-    //createControlsInControlContainer(controlContainer);
+    createFlightsContainer(dataContainer);
+
+}
+
+function createFlightsContainer(dataContainer)
+{
+    const flightsContainer=document.createElement("div");
+    flightsContainer.className="flightsContainer";
+    flightsContainer.id="flightsContainer";
+    dataContainer.appendChild(flightsContainer);
+
+    const tableWithFlights=document.createElement("table");
+    tableWithFlights.className="tableWithFlights";
+    tableWithFlights.id="tableWithFlights";
+    flightsContainer.appendChild(tableWithFlights);
+    
 }

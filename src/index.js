@@ -25,9 +25,24 @@ function findFlightsByDeparturePlaceAndArrivalPlace()
 
   streamInputTo.pipe(
     withLatestFrom(streamInputFrom),
-    switchMap(FromTo=>flights.getFlightsById(FromTo[1],FromTo[0]))
+    switchMap(FromTo=>flights.getFlightsByDepartureAndArrivalPlaces(FromTo[1],FromTo[0]))
   )
-  .subscribe(x=>console.log(x));
+  .subscribe(x=>createTableWithFlights(x));
+}
+
+function createTableWithFlights(flightsList)
+{
+  const tabelWithFlights=document.getElementById("tableWithFlights");
+  let tableHeader="<tr><th>From</th><th>To</th><th>Departure date</th><th>Return date</th><tr>";
+  let tableData="";
+
+  flightsList.forEach(flight=>{
+
+      tableData+="<tr><td>"+flight.from+"</td><td>"+flight.to+"</td><td>"+flight.departure+"</td><td>"+flight.return+"</td></tr>";
+  })
+  tableHeader+=tableData;
+  tabelWithFlights.innerHTML=tableHeader;
+
 }
 
 findFlightsByDeparturePlaceAndArrivalPlace();
