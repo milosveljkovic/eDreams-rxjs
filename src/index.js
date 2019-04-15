@@ -32,17 +32,42 @@ function findFlightsByDeparturePlaceAndArrivalPlace()
 
 function createTableWithFlights(flightsList)
 {
+  const pFromTo=document.getElementById("pFromTo");
+  pFromTo.style.visibility="visible";
+
+  if(flightsList.length==0){
+    pFromTo.innerHTML="Flights not found!"; 
+  }
+  else{
+  pFromTo.innerHTML=flightsList[0].from+"-"+flightsList[0].to; 
   const tabelWithFlights=document.getElementById("tableWithFlights");
-  let tableHeader="<tr><th>From</th><th>To</th><th>Departure date</th><th>Return date</th><tr>";
+  let tableHeader="<tr><th>Departure date</th><th>Return date</th><th>Price</th><tr>";
   let tableData="";
 
   flightsList.forEach(flight=>{
 
-      tableData+="<tr><td>"+flight.from+"</td><td>"+flight.to+"</td><td>"+flight.departure+"</td><td>"+flight.return+"</td></tr>";
+      tableData+="<tr><td>"+flight.departure+"</td><td>"+flight.return+"</td><td>"+flight.price+"e</td></tr>";
   })
   tableHeader+=tableData;
   tabelWithFlights.innerHTML=tableHeader;
+  }
+}
+
+function changeTheCurrency()
+{
+    const selectCurrency=document.getElementById("selectCurrency");
+    var currencyChange=fromEvent(selectCurrency,"change");
+
+    currencyChange.pipe(
+      map(currency=>currency.target.value)
+    ).subscribe(currencyValue=>changeCurrencyInTable(currencyValue));
 
 }
 
+function changeCurrencyInTable(currencyValue)
+{
+    
+}
+
 findFlightsByDeparturePlaceAndArrivalPlace();
+changeTheCurrency();

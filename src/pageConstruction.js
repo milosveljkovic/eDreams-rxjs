@@ -66,6 +66,32 @@ function createControlsInControlContainer(controlContainer){
     inputTo.id="inputTo";
     controlContainer.appendChild(inputTo);
 
+    const paragraphCurrency=document.createElement("p");
+    paragraphCurrency.innerHTML="Change currency:";
+    paragraphCurrency.className="paragraph";
+    controlContainer.appendChild(paragraphCurrency);
+
+    const selectCurrency=document.createElement("select");
+    selectCurrency.id="selectCurrency";
+    selectCurrency.className="selectCurrency";
+
+    const optionDollar=document.createElement("option");
+    optionDollar.innerHTML="Dollar";
+    optionDollar.value=1.13;
+    selectCurrency.appendChild(optionDollar);
+
+    const optionEuro=document.createElement("option");
+    optionEuro.innerHTML="Euro";
+    optionEuro.value=1;
+    selectCurrency.appendChild(optionEuro);
+
+    const optionRsd=document.createElement("option");
+    optionRsd.innerHTML="Dinar";
+    optionRsd.value=117.97;
+    selectCurrency.appendChild(optionRsd);
+
+    controlContainer.appendChild(selectCurrency);
+
 }
 
 function createDataContainer(bodyDiv){
@@ -74,7 +100,6 @@ function createDataContainer(bodyDiv){
     bodyDiv.appendChild(dataContainer);
 
     createFlightsContainer(dataContainer);
-
 }
 
 function createFlightsContainer(dataContainer)
@@ -83,6 +108,11 @@ function createFlightsContainer(dataContainer)
     flightsContainer.className="flightsContainer";
     flightsContainer.id="flightsContainer";
     dataContainer.appendChild(flightsContainer);
+
+    const pFromTo=document.createElement("p");
+    pFromTo.className="pFromTo";
+    pFromTo.id="pFromTo";
+    flightsContainer.appendChild(pFromTo);
 
     const tableWithFlights=document.createElement("table");
     tableWithFlights.className="tableWithFlights";
