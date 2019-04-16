@@ -78,6 +78,7 @@ function createControlsInControlContainer(controlContainer){
     const optionEuro=document.createElement("option");
     optionEuro.innerHTML="Euro/EUR";
     optionEuro.value="1 EUR";
+    optionEuro.id="optionEuro";
     selectCurrency.appendChild(optionEuro);
 
     const optionRsd=document.createElement("option");
@@ -96,6 +97,7 @@ function createDataContainer(bodyDiv){
 
     createFlightsContainer(dataContainer);
     createRangeContainer(dataContainer);
+    createPriceFlightsContainer(dataContainer);
 }
 
 function createFlightsContainer(dataContainer)
@@ -150,7 +152,7 @@ function createControlsForPrices(rangeContainer)
     rangeContainer.appendChild(showPrice);
 
     const paragraphShow=document.createElement("p");
-    paragraphShow.innerHTML=". Show (cheaper) -";
+    paragraphShow.innerHTML=". Show (cheaper-";
     paragraphShow.className="rangeParagraphs";
     rangeContainer.appendChild(paragraphShow); 
 
@@ -163,7 +165,7 @@ function createControlsForPrices(rangeContainer)
     rangeContainer.appendChild(radioCheaper);
 
     const paragraphMoreExpensive=document.createElement("p");
-    paragraphMoreExpensive.innerHTML=" or (more expensive) -";
+    paragraphMoreExpensive.innerHTML=") / (more expensive-";
     paragraphMoreExpensive.className="rangeParagraphs";
     rangeContainer.appendChild(paragraphMoreExpensive);
 
@@ -176,7 +178,16 @@ function createControlsForPrices(rangeContainer)
     rangeContainer.appendChild(radioExpensive);
 
     const paragraphFlighs=document.createElement("p");
-    paragraphFlighs.innerHTML="  flights compared to price!";
-    paragraphFlighs.className="paragraph";
+    paragraphFlighs.innerHTML=")  flights compared to price!";
+    paragraphFlighs.className="rangeParagraphs";
     rangeContainer.appendChild(paragraphFlighs);
+}
+
+function createPriceFlightsContainer(dataContainer)
+{
+    const priceFlightsContainer=document.createElement("div");
+    priceFlightsContainer.id="priceFlightsContainer";
+    priceFlightsContainer.className="priceFlightsContainer";
+    dataContainer.appendChild(priceFlightsContainer);
+
 }

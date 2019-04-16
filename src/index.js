@@ -1,6 +1,6 @@
 import { createMainContainer } from "./pageConstruction";
 import { Flights } from "./flights"
-import {interval,Observable,merge,range,fromEvent,from,zip,forkJoin,timer} from "rxjs";
+import {interval,Observable,merge,range,fromEvent,from,zip,forkJoin,timer,Subject} from "rxjs";
 import {take,filter,map,first,sampleTime,debounceTime,switchMap,TimeInterval,pairwise,scan,concat,withLatestFrom} from "rxjs/operators";
 
 var flights=new Flights();
@@ -27,7 +27,7 @@ function findFlightsByDeparturePlaceAndArrivalPlace()
     withLatestFrom(streamInputFrom),
     switchMap(FromTo=>flights.getFlightsByDepartureAndArrivalPlaces(FromTo[1],FromTo[0]))
   )
-  .subscribe(x=>createTableWithFlights(x));
+  .subscribe(flightsList=>createTableWithFlights(flightsList));
 }
 
 function createTableWithFlights(flightsList){
@@ -39,11 +39,13 @@ function createTableWithFlights(flightsList){
   var count=0;
 
   if(flightsList.length==0){
-    pFromTo.innerHTML="Flights not found!"; 
+    pFromTo.innerHTML="Looks like there aren't any flights between those places!"; 
     tabelWithFlights.style.visibility="hidden";
     selectCurrency.style.pointerEvents="none";
-  selectCurrency.style.opacity=0.4;
+    selectCurrency.style.opacity=0.4;
   }else{
+  const optionEuro=document.getElementById("optionEuro");
+  optionEuro.selected=true;
   tabelWithFlights.style.visibility="visible";
   selectCurrency.style.pointerEvents="all";
   selectCurrency.style.opacity=1;
@@ -81,8 +83,8 @@ function changeCurrencyInTable(currencyValue){
 
   while(count!=numberOfRows){
     var currentPriceAndCurrency=document.getElementById(`${count}`);
-    var priceAndCurency=currentPriceAndCurrency.innerHTML.split(" ");
-    var convertedPrice=convertCurrency(priceAndCurency);
+    var priceAndCurrency=currentPriceAndCurrency.innerHTML.split(" ");
+    var convertedPrice=convertCurrency(priceAndCurrency);
     currentPriceAndCurrency.innerHTML=convertedPrice+" "+valueOfCurrency[1];
     count++;
   }
@@ -121,11 +123,53 @@ function showPrices(price)
 function showFlightCheaperOrMoreExpensiveThanRangePrice()
 {
   const radioButtons=document.getElementsByName("priceRadio");
-  fromEvent(radioButtons,"change")
+  fromEvent(radioButtons,"click")
   .pipe(
+    debounceTime(1000),
     map(radioEvent=>radioEvent.target.value),
     switchMap(Price=>flights.getFlightByPrices(Price))
-  ).subscribe(flights=>console.log(flights));
+  ).subscribe(flights=>createContainerWithFlightsByPrice(flights));
+}
+
+function createContainerWithFlightsByPrice(flights)
+{
+  if(flights.length==0){
+          alertFlightByPriceNotFounded();
+  }else{
+  const priceFlightsContainer=document.getElementById("priceFlightsContainer");
+  priceFlightsContainer.innerHTML="";
+  flights.forEach(flight=>{
+      
+      var newPriceFlight=document.createElement("span");
+      newPriceFlight.className="priceFlightSpan";
+      priceFlightsContainer.appendChild(newPriceFlight);
+
+      var paragraphFlightDepartureDate=document.createElement("p");
+      paragraphFlightDepartureDate.innerHTML=flight.departure;
+      paragraphFlightDepartureDate.className="paragraphSpan";
+      newPriceFlight.appendChild(paragraphFlightDepartureDate);
+
+      var paragraphFromTo=document.createElement("p");
+      paragraphFromTo.innerHTML=flight.from+"-"+flight.to;
+      paragraphFromTo.className="paragraphSpanFromTo";
+      newPriceFlight.appendChild(paragraphFromTo);
+
+      var paragraphPrice=document.createElement("p");
+      paragraphPrice.innerHTML=flight.price+" EUR";
+      paragraphPrice.className="paragraphSpan";
+      newPriceFlight.appendChild(paragraphPrice);
+    }
+  )
+}
+  
+}
+
+function alertFlightByPriceNotFounded(){
+  var alertSubject=new Subject();
+  alertSubject.pipe(
+    sampleTime(1000)
+  ).subscribe(message=>alert(message));
+  alertSubject.next("Looks like there aren't any flights!");
 }
 
 showFlightCheaperOrMoreExpensiveThanRangePrice();
