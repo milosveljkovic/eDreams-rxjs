@@ -75,19 +75,14 @@ function createControlsInControlContainer(controlContainer){
     selectCurrency.id="selectCurrency";
     selectCurrency.className="selectCurrency";
 
-    const optionDollar=document.createElement("option");
-    optionDollar.innerHTML="Dollar";
-    optionDollar.value=1.13;
-    selectCurrency.appendChild(optionDollar);
-
     const optionEuro=document.createElement("option");
-    optionEuro.innerHTML="Euro";
-    optionEuro.value=1;
+    optionEuro.innerHTML="Euro/EUR";
+    optionEuro.value="1 EUR";
     selectCurrency.appendChild(optionEuro);
 
     const optionRsd=document.createElement("option");
-    optionRsd.innerHTML="Dinar";
-    optionRsd.value=117.97;
+    optionRsd.innerHTML="Dinar/RSD";
+    optionRsd.value="117.97 RSD";
     selectCurrency.appendChild(optionRsd);
 
     controlContainer.appendChild(selectCurrency);
@@ -100,6 +95,7 @@ function createDataContainer(bodyDiv){
     bodyDiv.appendChild(dataContainer);
 
     createFlightsContainer(dataContainer);
+    createRangeContainer(dataContainer);
 }
 
 function createFlightsContainer(dataContainer)
@@ -119,4 +115,68 @@ function createFlightsContainer(dataContainer)
     tableWithFlights.id="tableWithFlights";
     flightsContainer.appendChild(tableWithFlights);
     
+}
+
+function createRangeContainer(dataContainer)
+{
+    const rangeContainer=document.createElement("div");
+    rangeContainer.className="rangeContainer";
+    dataContainer.appendChild(rangeContainer);
+
+    createControlsForPrices(rangeContainer);
+}
+
+function createControlsForPrices(rangeContainer)
+{
+    const paragraphSetPrice=document.createElement("p");
+    paragraphSetPrice.innerHTML="Set price: ";
+    paragraphSetPrice.className="paragraph";
+    rangeContainer.appendChild(paragraphSetPrice);
+
+    const rangeForPrice=document.createElement("input");
+    rangeForPrice.type="range";
+    rangeForPrice.className="rangeForPrice";
+    rangeForPrice.id="rangeForPrice";
+    rangeForPrice.value=0;
+    rangeForPrice.min=0;
+    rangeForPrice.max=200;
+    rangeForPrice.step=10;
+    rangeContainer.appendChild(rangeForPrice);
+
+    const showPrice=document.createElement("p");
+    showPrice.className="paragraph";
+    showPrice.id="showPrice";
+    showPrice.innerHTML=0+" EUR";
+    rangeContainer.appendChild(showPrice);
+
+    const paragraphShow=document.createElement("p");
+    paragraphShow.innerHTML=". Show (cheaper) -";
+    paragraphShow.className="rangeParagraphs";
+    rangeContainer.appendChild(paragraphShow); 
+
+    const radioCheaper=document.createElement("input");
+    radioCheaper.type="radio";
+    radioCheaper.value="0 c";
+    radioCheaper.name="priceRadio";
+    radioCheaper.id="radioCheaper";
+    radioCheaper.className="rangeParagraphs";
+    rangeContainer.appendChild(radioCheaper);
+
+    const paragraphMoreExpensive=document.createElement("p");
+    paragraphMoreExpensive.innerHTML=" or (more expensive) -";
+    paragraphMoreExpensive.className="rangeParagraphs";
+    rangeContainer.appendChild(paragraphMoreExpensive);
+
+    const radioExpensive=document.createElement("input");
+    radioExpensive.type="radio";
+    radioExpensive.value="0 e";
+    radioExpensive.name="priceRadio";
+    radioExpensive.id="radioExpensive";    
+    radioExpensive.className="rangeParagraphs";
+    rangeContainer.appendChild(radioExpensive);
+
+    const paragraphFlighs=document.createElement("p");
+    paragraphFlighs.innerHTML="  flights compared to price!";
+    paragraphFlighs.className="paragraph";
+    rangeContainer.appendChild(paragraphFlighs);
 }

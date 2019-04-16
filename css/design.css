@@ -55,8 +55,10 @@
 .selectCurrency
 {
     align-self: center;
-    width: 70px;
+    width: 100px;
     margin:5px;
+    pointer-events: none;
+    opacity: 0.4;
 }
 
 .dataContainer
@@ -70,8 +72,9 @@
 .flightsContainer
 {
     height: 250px;
-    width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
     display: flex;
     flex-direction: column;
 
@@ -88,6 +91,7 @@
 }
 
 .tableWithFlights {
+    visibility: hidden;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -110,5 +114,47 @@
     color: white;
   }
 
+.rangeContainer
+{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+}
 
+.rangeForPrice {
+    align-self: center;
+    margin:10px;
+    -webkit-appearance: none;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .rangeForPrice:hover {
+    opacity: 1;
+  }
+  
+  .rangeForPrice::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+  
+  .rangeForPrice::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
 
+  .rangeParagraphs
+  {
+    align-self: center;
+  }
