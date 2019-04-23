@@ -1,7 +1,7 @@
 import { createMainContainer } from "./pageConstruction";
 import { Flights } from "./flights"
-import {interval,Observable,merge,range,fromEvent,from,zip,forkJoin,timer,Subject} from "rxjs";
-import {take,filter,map,first,sampleTime,debounceTime,switchMap,TimeInterval,pairwise,scan,concat,withLatestFrom} from "rxjs/operators";
+import {interval,Observable,merge,range,fromEvent,from,zip,forkJoin,timer,Subject, combineLatest} from "rxjs";
+import {take,filter,map,first,sampleTime,debounceTime,switchMap,pairwise,scan,concat,withLatestFrom} from "rxjs/operators";
 
 var flights=new Flights();
 
@@ -99,45 +99,41 @@ function convertCurrency(currentPriceAndCurrency){
 }
 
 
-function setPriceWithRange()
-{
+function RangeObservable(){
   const rangeForPrice=document.getElementById("rangeForPrice");
-  fromEvent(rangeForPrice,"input")
+  return fromEvent(rangeForPrice,"input")
   .pipe(
-    map(input=>input.target.value))
-    .subscribe(prices=>showPrices(prices));
+    map(input=>input.target.value));
 }
 
-function showPrices(price)
-{
+function showPrices(){
   const priceParagraph=document.getElementById("showPrice");
-  priceParagraph.innerHTML=price+" EUR";
-
-  const cheaperRadio=document.getElementById("radioCheaper");
-  cheaperRadio.value=price+" c";
-
-  const  moreExpensiveRadio=document.getElementById("radioExpensive");
-  moreExpensiveRadio.value=price+" e";
+  RangeObservable()
+  .subscribe(price=>{priceParagraph.innerHTML=price+" EUR";});
 }
 
-function showFlightCheaperOrMoreExpensiveThanRangePrice()
-{
+function showFlightCheaperOrMoreExpensiveThanRangePrice(){
   const radioButtons=document.getElementsByName("priceRadio");
-  fromEvent(radioButtons,"click")
+  const StreamRadio=fromEvent(radioButtons,"click")
   .pipe(
+    map(radioEvent=>radioEvent.target.value)
+  );
+
+  combineLatest(
+    RangeObservable(),
+    StreamRadio)
+    .pipe(
     debounceTime(1000),
-    map(radioEvent=>radioEvent.target.value),
     switchMap(Price=>flights.getFlightByPrices(Price))
-  ).subscribe(flights=>createContainerWithFlightsByPrice(flights));
+    )
+  .subscribe(flights=>createContainerWithFlightsByPrice(flights));
 }
 
-function createContainerWithFlightsByPrice(flights)
-{
-  if(flights.length==0){
-          alertFlightByPriceNotFounded();
-  }else{
+function createContainerWithFlightsByPrice(flights){
   const priceFlightsContainer=document.getElementById("priceFlightsContainer");
   priceFlightsContainer.innerHTML="";
+  if(flights.length==0){alertFlightByPriceNotFounded();}
+  else{
   flights.forEach(flight=>{
       
       var newPriceFlight=document.createElement("span");
@@ -173,6 +169,6 @@ function alertFlightByPriceNotFounded(){
 }
 
 showFlightCheaperOrMoreExpensiveThanRangePrice();
-setPriceWithRange();
+showPrices();
 findFlightsByDeparturePlaceAndArrivalPlace();
 changeTheCurrency();

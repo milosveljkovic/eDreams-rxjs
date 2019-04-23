@@ -141,7 +141,7 @@ function createControlsForPrices(rangeContainer)
     rangeForPrice.id="rangeForPrice";
     rangeForPrice.value=0;
     rangeForPrice.min=0;
-    rangeForPrice.max=200;
+    rangeForPrice.max=300;
     rangeForPrice.step=10;
     rangeContainer.appendChild(rangeForPrice);
 
@@ -158,7 +158,7 @@ function createControlsForPrices(rangeContainer)
 
     const radioCheaper=document.createElement("input");
     radioCheaper.type="radio";
-    radioCheaper.value="0 c";
+    radioCheaper.value="c";
     radioCheaper.name="priceRadio";
     radioCheaper.id="radioCheaper";
     radioCheaper.className="rangeParagraphs";
@@ -171,7 +171,7 @@ function createControlsForPrices(rangeContainer)
 
     const radioExpensive=document.createElement("input");
     radioExpensive.type="radio";
-    radioExpensive.value="0 e";
+    radioExpensive.value="e";
     radioExpensive.name="priceRadio";
     radioExpensive.id="radioExpensive";    
     radioExpensive.className="rangeParagraphs";

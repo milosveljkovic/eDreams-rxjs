@@ -8,6 +8,7 @@
 .headerDiv
 {
     height: 100px;
+    min-width: 420px;
     display: flex;
     flex-direction: column;
     background-color: rgb(69, 148, 250);
@@ -145,7 +146,7 @@
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #4CAF50;
+    background:  rgb(69, 148, 250);
     cursor: pointer;
   }
   
