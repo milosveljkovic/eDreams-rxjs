@@ -1,7 +1,7 @@
 import { createMainContainer } from "./pageConstruction";
 import { Flights } from "./flights"
-import {interval,Observable,merge,range,fromEvent,from,zip,forkJoin,timer,Subject, combineLatest} from "rxjs";
-import {take,filter,map,first,sampleTime,debounceTime,switchMap,pairwise,scan,concat,withLatestFrom} from "rxjs/operators";
+import {interval,Observable,merge,range,fromEvent,from,zip,forkJoin,timer,Subject, combineLatest,defer,of} from "rxjs";
+import {take,filter,map,first,sampleTime,debounceTime,switchMap,pairwise,scan,concat,withLatestFrom, takeWhile} from "rxjs/operators";
 
 var flights=new Flights();
 
@@ -98,7 +98,6 @@ function convertCurrency(currentPriceAndCurrency){
     }
 }
 
-
 function RangeObservable(){
   const rangeForPrice=document.getElementById("rangeForPrice");
   return fromEvent(rangeForPrice,"input")
@@ -168,7 +167,67 @@ function alertFlightByPriceNotFounded(){
   alertSubject.next("Looks like there aren't any flights!");
 }
 
+function jsonGet(flightss)
+{
+  console.log(flightss);
+ 
+  }
+ 
+function getSortedFlightsByDate(){
+  flights.sortFlightsByDate()
+  .subscribe(flightsSortByDates=>generateDiscountThatDependsOfDate(flightsSortByDates));
+}
+
+function generateDiscountThatDependsOfDate(flightsSortByDates){
+  const currentDate=new Date();
+  const lastDateOfDeparture=new Date(flightsSortByDates[0].departure);
+  lastDateOfDeparture.setDate(lastDateOfDeparture.getDate()+1); 
+  //flight will be on discount(50% off) if date of 
+  //departure for that flight is in less than 30 days!
+  currentDate.setDate(currentDate.getDate()+30); 
+
+  interval(1000)
+  .pipe(
+    map(()=> {currentDate.setDate(currentDate.getDate()+1);return currentDate}),
+    takeWhile(currDate=> compareDates(currDate,lastDateOfDeparture)),
+    switchMap(date=>flights.getFlightByDate(date)),
+  )
+  .subscribe(flight=>showDiscountPrice(flight));
+}
+
+function compareDates(currendDate,lastDateOfDeparture){
+  return ((currendDate.getDate()!==lastDateOfDeparture.getDate())||
+    (currendDate.getMonth()!==lastDateOfDeparture.getMonth()) ||
+    (currendDate.getFullYear()!==lastDateOfDeparture.getFullYear()) );
+}
+
+function showDiscountPrice(flight){
+  if(flight.length>0){
+    const listItem=document.getElementById(flight[0].id);
+    listItem.className="liAnimation";
+    listItem.innerHTML=flight[0].from+"-"+flight[0].to+" | Departure date: "
+    +flight[0].departure+" | Price: "+flight[0].price*0.5+" EUR  (50% off)";
+  }
+}
+
+function getAllFlights(){
+    flights.getAllFlights()
+    .subscribe(flights=>createFlightList(flights));
+}
+
+function createFlightList(flights){
+  const listOfFlights=document.getElementById("listOfFlights");
+  flights.forEach(flight=>{
+    const listItem=document.createElement("li");
+    listItem.innerHTML=flight.from+"-"+flight.to+" | Departure date: "+flight.departure+" | Price: "+flight.price+" EUR";
+    listItem.id=flight.id;
+    listOfFlights.appendChild(listItem);
+  })
+}
+
 showFlightCheaperOrMoreExpensiveThanRangePrice();
 showPrices();
 findFlightsByDeparturePlaceAndArrivalPlace();
 changeTheCurrency();
+getSortedFlightsByDate();
+getAllFlights();

@@ -45,7 +45,6 @@ function createControlContainer(bodyDiv){
 }
 
 function createControlsInControlContainer(controlContainer){
-
     const paragraphFrom=document.createElement("p");
     paragraphFrom.innerHTML="From: ";
     paragraphFrom.className="paragraph";
@@ -87,7 +86,6 @@ function createControlsInControlContainer(controlContainer){
     selectCurrency.appendChild(optionRsd);
 
     controlContainer.appendChild(selectCurrency);
-
 }
 
 function createDataContainer(bodyDiv){
@@ -98,10 +96,10 @@ function createDataContainer(bodyDiv){
     createFlightsContainer(dataContainer);
     createRangeContainer(dataContainer);
     createPriceFlightsContainer(dataContainer);
+    createContainerForFlightsWithDiscounts(dataContainer);
 }
 
-function createFlightsContainer(dataContainer)
-{
+function createFlightsContainer(dataContainer){
     const flightsContainer=document.createElement("div");
     flightsContainer.className="flightsContainer";
     flightsContainer.id="flightsContainer";
@@ -119,8 +117,7 @@ function createFlightsContainer(dataContainer)
     
 }
 
-function createRangeContainer(dataContainer)
-{
+function createRangeContainer(dataContainer){
     const rangeContainer=document.createElement("div");
     rangeContainer.className="rangeContainer";
     dataContainer.appendChild(rangeContainer);
@@ -128,8 +125,7 @@ function createRangeContainer(dataContainer)
     createControlsForPrices(rangeContainer);
 }
 
-function createControlsForPrices(rangeContainer)
-{
+function createControlsForPrices(rangeContainer){
     const paragraphSetPrice=document.createElement("p");
     paragraphSetPrice.innerHTML="Set price: ";
     paragraphSetPrice.className="paragraph";
@@ -183,11 +179,28 @@ function createControlsForPrices(rangeContainer)
     rangeContainer.appendChild(paragraphFlighs);
 }
 
-function createPriceFlightsContainer(dataContainer)
-{
+function createPriceFlightsContainer(dataContainer){
     const priceFlightsContainer=document.createElement("div");
     priceFlightsContainer.id="priceFlightsContainer";
     priceFlightsContainer.className="priceFlightsContainer";
     dataContainer.appendChild(priceFlightsContainer);
+}
 
+function createContainerForFlightsWithDiscounts(dataContainer)
+{
+    const discountFlightsContainer=document.createElement("div");
+    discountFlightsContainer.className="discountFlightsContainer";
+    discountFlightsContainer.id="discountFlightsContainer";
+    dataContainer.appendChild(discountFlightsContainer);
+
+    const pListOfFlights=document.createElement("p");
+    pListOfFlights.id="pListOfFlights";
+    pListOfFlights.className="rangeParagraphs";
+    pListOfFlights.innerHTML="List of fligts (Blue standard price/Red discount price)";
+    discountFlightsContainer.appendChild(pListOfFlights);
+
+    const listOfFlights=document.createElement("ul");
+    listOfFlights.id="listOfFlights";
+    listOfFlights.className="listOfFlights";
+    discountFlightsContainer.appendChild(listOfFlights);
 }

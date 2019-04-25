@@ -13,8 +13,7 @@ export class Flights
         .then(resoponse=>resoponse.json()));
     }
 
-    getFlightByPrices(PriceCheaperOrMoreExpensive)
-    {
+    getFlightByPrices(PriceCheaperOrMoreExpensive){
         if(PriceCheaperOrMoreExpensive[1]=='c'){
             return from(fetch(`http://localhost:3000/flights?price_lte=${PriceCheaperOrMoreExpensive[0]}`)
             .then(resoponse=>resoponse.json()));
@@ -24,4 +23,25 @@ export class Flights
         }
     }
 
+    getFlightByDate(currentDate){
+        //DATE FORMAT DD/MM/YYYY-shortDate
+        console.log(currentDate);
+        var day=currentDate.getDate();
+        (day<10)?day="0"+day:day;
+        var mon=currentDate.getMonth()+1;
+        (mon<10)?mon="0"+mon:mon;
+        var shortDate=mon+"/"+day+"/"+currentDate.getFullYear();
+        return from(fetch(`http://localhost:3000/flights?departure=${shortDate}`)
+        .then(resoponse=>resoponse.json()));
+    }
+
+    sortFlightsByDate(){
+        return from(fetch(`http://localhost:3000/flights?_sort=departure&_order=desc`)
+        .then(resoponse=>resoponse.json()));
+    }
+
+    getAllFlights(){
+        return from(fetch(`http://localhost:3000/flights`) 
+        .then(resoponse=>resoponse.json()));
+    }
 }
