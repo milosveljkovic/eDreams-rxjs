@@ -4,137 +4,308 @@
       "id": "barcelona-london-1",
       "from": "Barcelona",
       "to": "London",
-      "departure": "2019/05/03",
-      "return": "2019/05/20",
-      "price": 23
+      "departure": "2019-09-23",
+      "time":"10:50 - 13:10",
+      "price": 23,
+      "company":"Ryanair",
+      "availabletickets":39
     },
     {
       "id": "barcelona-london-2",
       "from": "Barcelona",
       "to": "London",
-      "departure": "2019/09/11",
-      "return": "2019/09/22",
-      "price": 27
+      "departure": "2019-09-11",
+      "time":"12:30 - 15:40",
+      "price": 27,
+      "company":"WizzAir",
+      "availabletickets":40
     },
     {
       "id": "barcelona-london-3",
       "from": "Barcelona",
       "to": "London",
-      "departure": "2019/06/01",
-      "return": "2019/06/08",
-      "price": 55
+      "departure": "2019-10-01",
+      "time":"10:50 - 13:10",
+      "price": 55,
+      "company":"Flynas",
+      "availabletickets":20
     },
     {
-      "id": "barcelona-paris",
+      "id": "barcelona-london-4",
+      "from": "Barcelona",
+      "to": "London",
+      "departure": "2019-10-11",
+      "time":"11:50 - 14:10",
+      "price": 23,
+      "company":"Ryanair",
+      "availabletickets":33
+    },
+    {
+      "id": "barcelona-london-5",
+      "from": "Barcelona",
+      "to": "London",
+      "departure": "2019-10-11",
+      "time":"17:30 - 19:55",
+      "price": 39,
+      "company":"WizzAir",
+      "availabletickets":29
+    },
+    {
+      "id": "barcelona-london-6",
+      "from": "Barcelona",
+      "to": "London",
+      "departure": "2019-10-11",
+      "time":"14:30 - 17:00",
+      "price": 25,
+      "company":"Flynas",
+      "availabletickets":13
+    },
+    {
+      "id": "barcelona-paris-1",
       "from": "Barcelona",
       "to": "Paris",
-      "departure": "2019/06/12",
-      "return": "2019/06/20",
-      "price": 62
+      "departure": "2019-11-15",
+      "time":"16:50 - 18:40",
+      "price": 62,
+      "company":"Flynas",
+      "availabletickets":38
     },
     {
-      "id": "barcelona-vienna",
+      "id": "barcelona-paris-2",
+      "from": "Barcelona",
+      "to": "Paris",
+      "departure": "2019-11-15",
+      "time":"13:50 - 15:40",
+      "price": 55,
+      "company":"WizzAir",
+      "availabletickets":23
+    },
+    {
+      "id": "barcelona-paris-3",
+      "from": "Barcelona",
+      "to": "Paris",
+      "departure": "2019-11-15",
+      "time":"09:20 - 11:30",
+      "price": 70,
+      "company":"WizzAir",
+      "availabletickets":29
+    },
+    {
+      "id": "barcelona-vienna-1",
       "from": "Barcelona",
       "to": "Vienna",
-      "departure": "2019/07/15",
-      "return": "2019/07/25",
-      "price": 53
+      "departure": "2019-10-15",
+      "time":"15:55 - 18:20",
+      "price": 53,
+      "company":"WizzAir",
+      "availabletickets":27
     },
     {
-      "id": "barcelona-amsterdam",
+      "id": "barcelona-vienna-2",
+      "from": "Barcelona",
+      "to": "Vienna",
+      "departure": "2019-10-15",
+      "time":"10:55 - 13:20",
+      "price": 60,
+      "company":"Ryanair",
+      "availabletickets":44
+    },
+    {
+      "id": "barcelona-amsterdam-1",
       "from": "Barcelona",
       "to": "Amsterdam",
-      "departure": "2019/04/28",
-      "return": "2019/04/29",
-      "price": 57
+      "departure": "2019-12-28",
+      "time":"06:40 - 08:45",
+      "price": 57,
+      "company":"EasyJet",
+      "availabletickets":64
     },
     {
-      "id": "madrid-london",
+      "id": "barcelona-amsterdam-2",
+      "from": "Barcelona",
+      "to": "Amsterdam",
+      "departure": "2019-12-28",
+      "time":"11:10 - 13:25",
+      "price": 65,
+      "company":"Ryanair",
+      "availabletickets":55
+    },
+    {
+      "id": "madrid-london-1",
       "from": "Madrid",
       "to": "London",
-      "departure": "2019/09/09",
-      "return": "2019/09/20",
-      "price": 200
+      "departure": "2019-09-28",
+      "time":"20:10 - 23:35",      
+      "price": 210,
+      "company":"Ryanair",
+      "availabletickets":17
+    },
+    {
+      "id": "madrid-london-2",
+      "from": "Madrid",
+      "to": "London",
+      "departure": "2019-09-28",
+      "time":"12:10 - 15:50",      
+      "price": 190,
+      "company":"Eurowings",
+      "availabletickets":52
     },
     {
       "id": "belgrade-prague",
       "from": "Belgrade",
       "to": "Prague",
-      "departure": "2019/09/24",
-      "return": "2019/09/26",
-      "price": 297
+      "departure": "2019-09-24",
+      "time":"18:15 - 19:50",      
+      "price": 297,
+      "company":"AirSerbia",
+      "availabletickets":46
     },
     {
-      "id": "belgrade-wroclaw",
-      "from": "Belgrade",
-      "to": "Wroclaw",
-      "departure": "2019/08/09",
-      "return": "2019/08/26",
-      "price": 176
-    },
-    {
-      "id": "nis-milano",
+      "id": "nis-milan-1",
       "from": "Nis",
-      "to": "Milano",
-      "departure": "2019/08/19",
-      "return": "2019/08/26",
-      "price": 35
+      "to": "Milan",
+      "departure": "2019-10-19",
+      "time":"14:05 - 15:50",      
+      "price": 35,
+      "company":"AirSerbia",
+      "availabletickets":33
+
     },
     {
-      "id": "nis-munich",
+      "id": "nis-milan-2",
+      "from": "Nis",
+      "to": "Milan",
+      "departure": "2019-10-19",
+      "time":"16:35 - 18:20",      
+      "price": 42,
+      "company":"AirSerbia",
+      "availabletickets":42
+    },
+    {
+      "id": "nis-munich-1",
       "from": "Nis",
       "to": "Munich",
-      "departure": "2019/07/12",
-      "return": "2019/07/22",
-      "price": 230
+      "departure": "2019-09-12",
+      "time":"10:00 - 11:55",      
+      "price": 230,
+      "company":"AirSerbia",
+      "availabletickets":10
     },
     {
-      "id": "sofia-krakow",
-      "from": "Sofia",
-      "to": "Krakow",
-      "departure": "2020/03/08",
-      "return": "2020/03/11",
-      "price": 206
+      "id": "nis-munich-2",
+      "from": "Nis",
+      "to": "Munich",
+      "departure": "2019-09-12",
+      "time":"19:00 - 20:45",      
+      "price": 210,
+      "company":"WizzAir",
+      "availabletickets":15
     },
     {
-      "id": "athens-tokyo",
-      "from": "Athens",
-      "to": "Tokyo",
-      "departure": "2019/12/10",
-      "return": "2019/12/25",
-      "price": 682
-    },
-    {
-      "id": "prague-berlin",
-      "from": "Prague",
-      "to": "Berlin",
-      "departure": "2020/01/07",
-      "return": "2020/01/09",
-      "price": 154
-    },
-    {
-      "id": "moscow-paris",
+      "id": "moscow-paris-1",
       "from": "Moscow",
       "to": "Paris",
-      "departure": "2019/09/12",
-      "return": "2019/09/22",
-      "price": 413
+      "departure": "2019-09-17",
+      "time":"10:50 - 14:10",      
+      "price": 413,
+      "company":"WizzAir",
+      "availabletickets":35
     },
     {
-      "id": "podgorica-thessaloniki",
-      "from": "Podgorica",
-      "to": "Thessaloniki",
-      "departure": "2019/07/12",
-      "return": "2019/07/22",
-      "price": 461
+      "id": "moscow-paris-2",
+      "from": "Moscow",
+      "to": "Paris",
+      "departure": "2019-09-17",
+      "time":"13:20 - 16:40",      
+      "price": 403,
+      "company":"Eurowings",
+      "availabletickets":30
+    }
+  ],
+  "reservations":[
+    {
+      "id": 1,
+      "flightId":"barcelona-london-4",
+      "name": "Milos",
+      "surname":"Milutinov",
+      "city":"Valjevo"
     },
     {
-      "id": "istanbul-skopje",
-      "from": "Istanbul",
-      "to": "Skopje",
-      "departure": "2019/11/20",
-      "return": "2019/11/27",
-      "price": 189
+      "id": 2,
+      "flightId":"barcelona-london-4",
+      "name": "Dragutin",
+      "surname":"Pancic",
+      "city":"Nis"
+    },
+    {
+      "id": 3,
+      "flightId":"barcelona-london-4",
+      "name": "Ana",
+      "surname":"Djordjevic",
+      "city":"Surdulica"
+    },
+    {
+      "id": 4,
+      "flightId":"barcelona-london-4",
+      "name": "Milana",
+      "surname":"Stojakov",
+      "city":"Pirot"
+    },
+    {
+      "id": 5,
+      "flightId":"barcelona-london-4",
+      "name": "Jovan",
+      "surname":"Antic",
+      "city":"Nis"
+    },
+    {
+      "id": 6,
+      "flightId":"barcelona-london-4",
+      "name": "Ivan",
+      "surname":"Ivanov",
+      "city":"Beograd"
+    },
+    {
+      "id": 7,
+      "flightId":"barcelona-london-4",
+      "name": "Mario",
+      "surname":"Ilic",
+      "city":"Krusevac"
+    },
+    {
+      "id": 8,
+      "flightId":"barcelona-london-4",
+      "name": "Stefan",
+      "surname":"Tosic",
+      "city":"Zrenjanin"
+    },
+    {
+      "id": 9,
+      "flightId":"barcelona-london-5",
+      "name": "Predrag",
+      "surname":"Ilic",
+      "city":"Pancevo"
+    },
+    {
+      "id": 10,
+      "flightId":"barcelona-london-5",
+      "name": "Ilija",
+      "surname":"Mihajlovic",
+      "city":"Nis"
+    },
+    {
+      "id": 11,
+      "flightId":"barcelona-london-5",
+      "name": "Aleksa",
+      "surname":"Trickovic",
+      "city":"Pirot"
+    },
+    {
+      "id": 12,
+      "flightId":"barcelona-london-5",
+      "name": "Jelena",
+      "surname":"Maksimovic",
+      "city":"Zrenjanin"
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { from } from "rxjs";
 
-export class Flights
+export class FlightsService
 {
     constructor(){
     }
@@ -10,6 +10,21 @@ export class Flights
         var toCity=To.charAt(0).toUpperCase()+To.slice(1).toLowerCase();
 
         return from(fetch(`http://localhost:3000/flights?from=${fromCity}&to=${toCity}`)
+        .then(response=>response.json()));
+    }
+
+    getFlightsByDepartureArrivalPlacesAndDepartureDate(FromToDeparturedate){
+         var fromCity=FromToDeparturedate[1][0].charAt(0).toUpperCase()+FromToDeparturedate[1][0].slice(1).toLowerCase();
+         var toCity=FromToDeparturedate[1][1].charAt(0).toUpperCase()+FromToDeparturedate[1][1].slice(1).toLowerCase();
+         var DepartureDate=FromToDeparturedate[2];
+         
+         return from(fetch(`http://localhost:3000/flights?from=${fromCity}&to=${toCity}&departure=${DepartureDate}`)
+        .then(response=>response.json()));
+    }
+
+    getFlightsByFilters(filter){
+        console.log(filter);
+        return from(fetch(`http://localhost:3000/flights`) 
         .then(response=>response.json()));
     }
 
@@ -42,6 +57,11 @@ export class Flights
 
     getAllFlights(){
         return from(fetch(`http://localhost:3000/flights`) 
+        .then(response=>response.json()));
+    }
+
+    getFlightById(id){
+        return from(fetch(`http://localhost:3000/flights?id=${id}`) 
         .then(response=>response.json()));
     }
 }

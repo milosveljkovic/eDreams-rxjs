@@ -1,4 +1,4 @@
-.mainContainer
+.mainContentContainer
 {
     height: 1000px;
     display: flex;
@@ -19,13 +19,13 @@
     margin:auto;
     font-size: 80px;
     font-weight: 150;
-    -webkit-text-fill-color:rgb(241, 245, 45);
+    -webkit-text-fill-color:rgb(255, 206, 46);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
     text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
 }
 
-.bodyDiv
+.contentContainer
 {
     display: flex;
     flex-grow: 1;
@@ -37,6 +37,54 @@
     display: flex;
     flex-direction: row;
     height: 50px;
+}
+
+.buttonDesign
+{
+  background-color:rgb(69, 148, 250); 
+  border: 1px solid; 
+  border-radius: 8px;
+  width: 100px;
+  height: 40px;
+  margin: 5px;
+}
+
+.dataContainer
+{
+  display: flex;
+  flex-direction: column
+}
+
+.listOfFlightsContainer
+{
+  display: flex;
+  flex-direction: column
+}
+
+/* .flightContainer
+{
+  display: flex;
+  flex-direction: row
+} */
+
+.imgHolderContainer
+{
+  height: 170px;
+  width: 300px;
+}
+
+.buttonContainer
+{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.reservationContainer
+{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
 }
 
 .input
@@ -70,22 +118,64 @@
     flex-direction: column;
     flex-grow: 1;
     background-color: rgb(255, 255, 255);
+    text-align: center;
 }
 
+/*sadrzi niz letova*/
 .flightsContainer
 {
     height: 250px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    /* overflow-y: auto;
+    overflow-x: hidden; */
     width: 100%;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+}
 
+/*kontejner sadrzi sliku i info*/
+.flightContainer
+{
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 2px;
+  border-style:solid;
+  border-color: rgb(69, 148, 250) rgb(69, 148, 250) rgb(69, 148, 250) rgb(69, 148, 250);
+  border-width: 2px 2px 2px 20px;
+}
+
+.flightInfoContainer
+{
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoParagraphFromTo
+{
+  margin: 10px;
+  font-size: 30px;
+  height: 40px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.pDepartureDateAndTime
+{
+  font-size: 20px;
+  height: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.tickets
+{
+  height: 60px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .pFromTo
 {
-    text-align: left;
+    text-align: center;
     height: 35px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 25px;
@@ -93,23 +183,22 @@
     margin: 0%;
 }
 
-.tableWithFlights {
-    visibility: hidden;
+.tableWithReservations {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
   }
   
-.tableWithFlights td, .tableWithFlights th {
+.tableWithReservations td, .tableWithReservations th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-.tableWithFlights tr:nth-child(even){background-color: #f2f2f2;}
+.tableWithReservations tr:nth-child(even){background-color: #f2f2f2;}
   
-.tableWithFlights tr:hover {background-color: #ddd;}
+.tableWithReservations tr:hover {background-color: #ddd;}
   
-.tableWithFlights th {
+.tableWithReservations th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -166,14 +255,13 @@
   {
     overflow: auto;
     width: 100%;
-    height: 170px;
     background-color: rgb(255, 255, 255);
   }
 
   .priceFlightSpan
   {
   display: inline-block;
-  width: 250px;
+  width: 100%;
   height: 100px;
   padding: 5px;
   border: 1px solid rgb(49, 132, 240);    
@@ -232,4 +320,21 @@
   @keyframes example {
     from {background-color: #6caef5;}
     to {background-color: #f44242;}
+  }
+
+  /*--------------------------------------------*/
+
+  .navigationBarContainer
+  {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(69, 148, 250);
+  }
+
+  .navComponent
+  {
+    width: 40px;
+    align-self: center;
   }
