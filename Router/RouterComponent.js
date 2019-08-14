@@ -1,5 +1,5 @@
 import {MainPage} from "../src/Pages/MainPage";
-import {ReservationsPage} from "../src/Pages/ReservationsPage"
+import {TicketPage} from "../src/Pages/TicketPage"
 
 export class RouterComponent
 {
@@ -11,9 +11,9 @@ export class RouterComponent
         mainPage.createMainContainer(document.getElementById("contentContainer"));
     }
 
-    openReservationsPage(flight){
-        var reservationsPage=new ReservationsPage();
-        reservationsPage.createReservationsPage(flight);
+    openTicketPage(flight){
+        var ticketPage=new TicketPage();
+        ticketPage.createTicketPage(flight);
     }
 
 }

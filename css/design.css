@@ -37,6 +37,8 @@
     display: flex;
     flex-direction: row;
     height: 50px;
+    align-items: center;
+    justify-content: center
 }
 
 .buttonDesign
@@ -61,12 +63,6 @@
   flex-direction: column
 }
 
-/* .flightContainer
-{
-  display: flex;
-  flex-direction: row
-} */
-
 .imgHolderContainer
 {
   height: 170px;
@@ -80,11 +76,13 @@
   flex-grow: 1;
 }
 
-.reservationContainer
+.buyTicketContainer
 {
   display: flex;
   flex-direction: column;
   width: 350px;
+  text-align: center;
+  justify-content: center;
 }
 
 .input
@@ -183,22 +181,22 @@
     margin: 0%;
 }
 
-.tableWithReservations {
+.tabelWithTickets {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
   }
   
-.tableWithReservations td, .tableWithReservations th {
+.tabelWithTickets td, .tabelWithTickets th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-.tableWithReservations tr:nth-child(even){background-color: #f2f2f2;}
+.tabelWithTickets tr:nth-child(even){background-color: #f2f2f2;}
   
-.tableWithReservations tr:hover {background-color: #ddd;}
+.tabelWithTickets tr:hover {background-color: #ddd;}
   
-.tableWithReservations th {
+.tabelWithTickets th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -324,17 +322,22 @@
 
   /*--------------------------------------------*/
 
-  .navigationBarContainer
+  .buyButtonContainer
   {
-    height: 50px;
-    width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: rgb(69, 148, 250);
   }
 
-  .navComponent
+  .spanDesign
   {
-    width: 40px;
-    align-self: center;
+    width: 600px;
+  }
+
+  .ticketFormContainer
+  {
+    margin: 10px 300px 0px 300px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #f2f2f2;
   }

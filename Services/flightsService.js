@@ -64,4 +64,13 @@ export class FlightsService
         return from(fetch(`http://localhost:3000/flights?id=${id}`) 
         .then(response=>response.json()));
     }
+
+    updateFlight(flight){
+        const newFlight={
+            method:"put",
+            body: JSON.stringify(flight),
+            headers:{'Content-Type':'application/json'},
+        };
+        return from(fetch(`http://localhost:3000/flights/${flight.id}`,newFlight).then((response)=>response.json()))
+    }
 }

@@ -5,307 +5,417 @@
       "from": "Barcelona",
       "to": "London",
       "departure": "2019-09-23",
-      "time":"10:50 - 13:10",
+      "time": "10:50 - 13:10",
       "price": 23,
-      "company":"Ryanair",
-      "availabletickets":39
+      "company": "Ryanair",
+      "availabletickets": 39
     },
     {
       "id": "barcelona-london-2",
       "from": "Barcelona",
       "to": "London",
       "departure": "2019-09-11",
-      "time":"12:30 - 15:40",
+      "time": "12:30 - 15:40",
       "price": 27,
-      "company":"WizzAir",
-      "availabletickets":40
+      "company": "WizzAir",
+      "availabletickets": 40
     },
     {
       "id": "barcelona-london-3",
       "from": "Barcelona",
       "to": "London",
       "departure": "2019-10-01",
-      "time":"10:50 - 13:10",
+      "time": "10:50 - 13:10",
       "price": 55,
-      "company":"Flynas",
-      "availabletickets":20
+      "company": "Flynas",
+      "availabletickets": 20
     },
     {
       "id": "barcelona-london-4",
       "from": "Barcelona",
       "to": "London",
       "departure": "2019-10-11",
-      "time":"11:50 - 14:10",
+      "time": "11:50 - 14:10",
       "price": 23,
-      "company":"Ryanair",
-      "availabletickets":33
+      "company": "Ryanair",
+      "availabletickets": 0
     },
     {
       "id": "barcelona-london-5",
       "from": "Barcelona",
       "to": "London",
       "departure": "2019-10-11",
-      "time":"17:30 - 19:55",
+      "time": "17:30 - 19:55",
       "price": 39,
-      "company":"WizzAir",
-      "availabletickets":29
+      "company": "WizzAir",
+      "availabletickets": 27
     },
     {
       "id": "barcelona-london-6",
       "from": "Barcelona",
       "to": "London",
       "departure": "2019-10-11",
-      "time":"14:30 - 17:00",
+      "time": "14:30 - 17:00",
       "price": 25,
-      "company":"Flynas",
-      "availabletickets":13
+      "company": "Flynas",
+      "availabletickets": 13
     },
     {
       "id": "barcelona-paris-1",
       "from": "Barcelona",
       "to": "Paris",
       "departure": "2019-11-15",
-      "time":"16:50 - 18:40",
+      "time": "16:50 - 18:40",
       "price": 62,
-      "company":"Flynas",
-      "availabletickets":38
+      "company": "Flynas",
+      "availabletickets": 38
     },
     {
       "id": "barcelona-paris-2",
       "from": "Barcelona",
       "to": "Paris",
       "departure": "2019-11-15",
-      "time":"13:50 - 15:40",
+      "time": "13:50 - 15:40",
       "price": 55,
-      "company":"WizzAir",
-      "availabletickets":23
+      "company": "WizzAir",
+      "availabletickets": 23
     },
     {
       "id": "barcelona-paris-3",
       "from": "Barcelona",
       "to": "Paris",
       "departure": "2019-11-15",
-      "time":"09:20 - 11:30",
+      "time": "09:20 - 11:30",
       "price": 70,
-      "company":"WizzAir",
-      "availabletickets":29
+      "company": "WizzAir",
+      "availabletickets": 29
     },
     {
       "id": "barcelona-vienna-1",
       "from": "Barcelona",
       "to": "Vienna",
       "departure": "2019-10-15",
-      "time":"15:55 - 18:20",
+      "time": "15:55 - 18:20",
       "price": 53,
-      "company":"WizzAir",
-      "availabletickets":27
+      "company": "WizzAir",
+      "availabletickets": 27
     },
     {
       "id": "barcelona-vienna-2",
       "from": "Barcelona",
       "to": "Vienna",
       "departure": "2019-10-15",
-      "time":"10:55 - 13:20",
+      "time": "10:55 - 13:20",
       "price": 60,
-      "company":"Ryanair",
-      "availabletickets":44
+      "company": "Ryanair",
+      "availabletickets": 44
     },
     {
       "id": "barcelona-amsterdam-1",
       "from": "Barcelona",
       "to": "Amsterdam",
       "departure": "2019-12-28",
-      "time":"06:40 - 08:45",
+      "time": "06:40 - 08:45",
       "price": 57,
-      "company":"EasyJet",
-      "availabletickets":64
+      "company": "EasyJet",
+      "availabletickets": 64
     },
     {
       "id": "barcelona-amsterdam-2",
       "from": "Barcelona",
       "to": "Amsterdam",
       "departure": "2019-12-28",
-      "time":"11:10 - 13:25",
+      "time": "11:10 - 13:25",
       "price": 65,
-      "company":"Ryanair",
-      "availabletickets":55
+      "company": "Ryanair",
+      "availabletickets": 55
     },
     {
       "id": "madrid-london-1",
       "from": "Madrid",
       "to": "London",
       "departure": "2019-09-28",
-      "time":"20:10 - 23:35",      
+      "time": "20:10 - 23:35",
       "price": 210,
-      "company":"Ryanair",
-      "availabletickets":17
+      "company": "Ryanair",
+      "availabletickets": 17
     },
     {
       "id": "madrid-london-2",
       "from": "Madrid",
       "to": "London",
       "departure": "2019-09-28",
-      "time":"12:10 - 15:50",      
+      "time": "12:10 - 15:50",
       "price": 190,
-      "company":"Eurowings",
-      "availabletickets":52
+      "company": "Eurowings",
+      "availabletickets": 52
     },
     {
       "id": "belgrade-prague",
       "from": "Belgrade",
       "to": "Prague",
       "departure": "2019-09-24",
-      "time":"18:15 - 19:50",      
+      "time": "18:15 - 19:50",
       "price": 297,
-      "company":"AirSerbia",
-      "availabletickets":46
+      "company": "AirSerbia",
+      "availabletickets": 46
     },
     {
       "id": "nis-milan-1",
       "from": "Nis",
       "to": "Milan",
       "departure": "2019-10-19",
-      "time":"14:05 - 15:50",      
+      "time": "14:05 - 15:50",
       "price": 35,
-      "company":"AirSerbia",
-      "availabletickets":33
-
+      "company": "AirSerbia",
+      "availabletickets": 33
     },
     {
       "id": "nis-milan-2",
       "from": "Nis",
       "to": "Milan",
       "departure": "2019-10-19",
-      "time":"16:35 - 18:20",      
+      "time": "16:35 - 18:20",
       "price": 42,
-      "company":"AirSerbia",
-      "availabletickets":42
+      "company": "AirSerbia",
+      "availabletickets": 42
     },
     {
       "id": "nis-munich-1",
       "from": "Nis",
       "to": "Munich",
       "departure": "2019-09-12",
-      "time":"10:00 - 11:55",      
+      "time": "10:00 - 11:55",
       "price": 230,
-      "company":"AirSerbia",
-      "availabletickets":10
+      "company": "AirSerbia",
+      "availabletickets": 10
     },
     {
       "id": "nis-munich-2",
       "from": "Nis",
       "to": "Munich",
       "departure": "2019-09-12",
-      "time":"19:00 - 20:45",      
+      "time": "19:00 - 20:45",
       "price": 210,
-      "company":"WizzAir",
-      "availabletickets":15
+      "company": "WizzAir",
+      "availabletickets": 15
     },
     {
       "id": "moscow-paris-1",
       "from": "Moscow",
       "to": "Paris",
       "departure": "2019-09-17",
-      "time":"10:50 - 14:10",      
+      "time": "10:50 - 14:10",
       "price": 413,
-      "company":"WizzAir",
-      "availabletickets":35
+      "company": "WizzAir",
+      "availabletickets": 35
     },
     {
       "id": "moscow-paris-2",
       "from": "Moscow",
       "to": "Paris",
       "departure": "2019-09-17",
-      "time":"13:20 - 16:40",      
+      "time": "13:20 - 16:40",
       "price": 403,
-      "company":"Eurowings",
-      "availabletickets":30
+      "company": "Eurowings",
+      "availabletickets": 30
     }
   ],
-  "reservations":[
+  "tickets": [
     {
       "id": 1,
-      "flightId":"barcelona-london-4",
+      "flightId": "barcelona-london-4",
       "name": "Milos",
-      "surname":"Milutinov",
-      "city":"Valjevo"
+      "surname": "Milutinov",
+      "city": "Valjevo",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 2,
-      "flightId":"barcelona-london-4",
+      "flightId": "barcelona-london-4",
       "name": "Dragutin",
-      "surname":"Pancic",
-      "city":"Nis"
+      "surname": "Pancic",
+      "city": "Nis",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 3,
-      "flightId":"barcelona-london-4",
+      "flightId": "barcelona-london-4",
       "name": "Ana",
-      "surname":"Djordjevic",
-      "city":"Surdulica"
+      "surname": "Djordjevic",
+      "city": "Surdulica",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 4,
-      "flightId":"barcelona-london-4",
+      "flightId": "barcelona-london-4",
       "name": "Milana",
-      "surname":"Stojakov",
-      "city":"Pirot"
+      "surname": "Stojakov",
+      "city": "Pirot",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 5,
-      "flightId":"barcelona-london-4",
+      "flightId": "barcelona-london-4",
       "name": "Jovan",
-      "surname":"Antic",
-      "city":"Nis"
+      "surname": "Antic",
+      "city": "Nis",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 6,
-      "flightId":"barcelona-london-4",
+      "flightId": "barcelona-london-4",
       "name": "Ivan",
-      "surname":"Ivanov",
-      "city":"Beograd"
+      "surname": "Ivanov",
+      "city": "Beograd",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 7,
-      "flightId":"barcelona-london-4",
+      "flightId": "barcelona-london-4",
       "name": "Mario",
-      "surname":"Ilic",
-      "city":"Krusevac"
+      "surname": "Ilic",
+      "city": "Krusevac",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 8,
-      "flightId":"barcelona-london-4",
+      "flightId": "barcelona-london-4",
       "name": "Stefan",
-      "surname":"Tosic",
-      "city":"Zrenjanin"
+      "surname": "Tosic",
+      "city": "Zrenjanin",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 9,
-      "flightId":"barcelona-london-5",
+      "flightId": "barcelona-london-5",
       "name": "Predrag",
-      "surname":"Ilic",
-      "city":"Pancevo"
+      "surname": "Ilic",
+      "city": "Pancevo",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 10,
-      "flightId":"barcelona-london-5",
+      "flightId": "barcelona-london-5",
       "name": "Ilija",
-      "surname":"Mihajlovic",
-      "city":"Nis"
+      "surname": "Mihajlovic",
+      "city": "Nis",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 11,
-      "flightId":"barcelona-london-5",
+      "flightId": "barcelona-london-5",
       "name": "Aleksa",
-      "surname":"Trickovic",
-      "city":"Pirot"
+      "surname": "Trickovic",
+      "city": "Pirot",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
     },
     {
       "id": 12,
-      "flightId":"barcelona-london-5",
+      "flightId": "barcelona-london-5",
       "name": "Jelena",
-      "surname":"Maksimovic",
-      "city":"Zrenjanin"
+      "surname": "Maksimovic",
+      "city": "Zrenjanin",
+      "address": "Cara Dusana 66",
+      "email": "milosmilutinov@gmail.com",
+      "phone": "0657752498",
+      "cardnumber": "55789521785934",
+      "package": "gold",
+      "ticketprice": 30
+    },
+    {
+      "id": 13,
+      "flightId": "barcelona-london-4",
+      "name": "Branko",
+      "surname": "Stavric",
+      "city": "Uzice",
+      "address": "Mihajla Pupina",
+      "email": "brankofox@gmail.com",
+      "phone": "069578925",
+      "cardnumber": "99721584792",
+      "package": "gold",
+      "ticketprice": 53
+    },
+    {
+      "id": 14,
+      "flightId": "barcelona-london-4",
+      "name": "Marko",
+      "surname": "Nikolic",
+      "city": "Nis",
+      "address": "Srpskih Vladara 17",
+      "email": "markonikolic@gmail.com",
+      "phone": "063578414",
+      "cardnumber": "95151827638",
+      "package": "platinum",
+      "ticketprice": 73
+    },
+    {
+      "id": 15,
+      "flightId": "barcelona-london-5",
+      "name": "Dragutin",
+      "surname": "Milosavljevic",
+      "city": "Valjevo",
+      "address": "Jevrejska 14",
+      "email": "dragmilos@gmail.com",
+      "phone": "065458759",
+      "cardnumber": "97159267848",
+      "package": "gold",
+      "ticketprice": 69
     }
   ]
 }

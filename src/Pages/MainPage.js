@@ -1,7 +1,7 @@
-import {interval,fromEvent,Subject, combineLatest,merge,of,zip } from "rxjs";
-import {map,sampleTime,debounceTime,switchMap,withLatestFrom,takeWhile,take} from "rxjs/operators";
-import { FlightsService } from "../../Services/flightsService";
+import {fromEvent, combineLatest,interval} from "rxjs";
+import {map,debounceTime,switchMap,withLatestFrom} from "rxjs/operators";
 
+import { FlightsService } from "../../Services/flightsService";
 import {RouterComponent} from "../../Router/RouterComponent";
 
 export class MainPage{
@@ -14,6 +14,10 @@ export class MainPage{
     createMainContainer(contentContainer){
 
         contentContainer.innerHTML="";
+
+        //const source = interval(30);
+        //output: 0,1,2,3,4,5....
+        //source.subscribe(val => console.log(val));
 
         const mainContentContainer=document.createElement("div");
         mainContentContainer.className="mainContentContainer";
@@ -37,7 +41,7 @@ export class MainPage{
     createControlsInControlContainer(controlContainer){
         const paragraphFrom=document.createElement("p");
         paragraphFrom.innerHTML="From: ";
-        paragraphFrom.className="paragraph";
+        paragraphFrom.className="paragraph font";
         controlContainer.appendChild(paragraphFrom);
     
         const inputFrom=document.createElement("input");
@@ -47,7 +51,7 @@ export class MainPage{
     
         const paragraphTo=document.createElement("p");
         paragraphTo.innerHTML="To: ";
-        paragraphTo.className="paragraph";
+        paragraphTo.className="paragraph font";
         controlContainer.appendChild(paragraphTo);
     
         const inputTo=document.createElement("input");
@@ -57,7 +61,7 @@ export class MainPage{
     
         const paragraphDateOfDeparture=document.createElement("p");
         paragraphDateOfDeparture.innerHTML="Date of departure: ";
-        paragraphDateOfDeparture.className="paragraph";
+        paragraphDateOfDeparture.className="paragraph font";
         controlContainer.appendChild(paragraphDateOfDeparture);
     
         const inputDateOfDeparture=document.createElement("input");
@@ -69,7 +73,7 @@ export class MainPage{
         const searchButton=document.createElement("button");
         searchButton.innerHTML="Search";
         searchButton.id="searchButton";
-        searchButton.className="buttonDesign";
+        searchButton.className="buttonDesign font";
         controlContainer.appendChild(searchButton);
     }
     
@@ -229,22 +233,18 @@ export class MainPage{
 
     createButtonContainer(buttonContainer,flight){
       
-        const reservationContainer=document.createElement("div");
-        reservationContainer.className="reservationContainer";
-        buttonContainer.appendChild(reservationContainer);
+        const buyTicketContainer=document.createElement("div");
+        buyTicketContainer.className="buyTicketContainer";
+        buttonContainer.appendChild(buyTicketContainer);
     
-        const reservationButton=document.createElement("button");
-        reservationButton.id=flight.id;
-        reservationButton.innerHTML="Reservation";
-        reservationButton.className="buttonDesign";
-        reservationContainer.appendChild(reservationButton);
+        const buyTicketButton=document.createElement("button");
+        buyTicketButton.id=flight.id;
+        buyTicketButton.innerHTML="Buy Ticket";
+        buyTicketButton.className="buttonDesign font";
+        buyTicketContainer.appendChild(buyTicketButton);
     
-        reservationButton.onclick=(ev)=>{
-            // const bodyDiv=document.getElementById("bodyDiv");
-            // while (bodyDiv.hasChildNodes()) {   
-            //     bodyDiv.removeChild(bodyDiv.firstChild);
-            // }
-            this.router.openReservationsPage(flight);
+        buyTicketButton.onclick=(ev)=>{
+            this.router.openTicketPage(flight);
         }
     }
 
