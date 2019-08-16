@@ -15,10 +15,10 @@ export class TicketPage{
         this.ticketForm=new TicketForm();
     }
     
-    createTicketPage(flight){
+    createTicketPage(flightId){
         zip(
-            this.flights.getFlightById(flight.id),
-            this.ticketsService.getTicketsByFlightId(flight.id)
+            this.flights.getFlightById(flightId),
+            this.ticketsService.getTicketsByFlightId(flightId)
             ).subscribe(
                 flightAndTickets=>this.createTicketContainer(flightAndTickets)
                 );
@@ -42,7 +42,7 @@ export class TicketPage{
 
         const flightInfoContainer=document.createElement("div");
         flightInfoContainer.id="flightInfoContainer";
-        flightInfoContainer.className="flightInfoContainer";
+        flightInfoContainer.className="flightInfoContainer textCentered";
         flightInfoTicketsContainer.appendChild(flightInfoContainer);
 
         this.mainPage.createInfoContainer(flightInfoContainer,flightAndTickets[0][0]);
@@ -65,7 +65,6 @@ export class TicketPage{
   
         const tabelWithTickets=document.createElement("table");
         tabelWithTickets.className="tabelWithTickets";
-        console.log(tickets);
   
         if(tickets.length==0){
             const pNoTickets=document.createElement("P");
@@ -73,11 +72,10 @@ export class TicketPage{
             pNoTickets.className="infoParagraphFromTo";
             ticketsListContainer.appendChild(pNoTickets);
         }else{
-            let tableHeader="<tr><th>Name</th><th>Surname</th><th>City</th></tr>";
+            let tableHeader="<tr><th>Name</th><th>Surname</th><th>City</th><th>Address</th><th>Package</th></tr>";
             let tableData="";
-        
             tickets.forEach(ticket=>{
-                tableData+="<tr><td>"+ticket.name+"</td><td>"+ticket.surname+"</td><td>"+ticket.city+"</td></tr>";
+                tableData+="<tr><td>"+ticket.name+"</td><td>"+ticket.surname+"</td><td>"+ticket.city+"</td><td>"+ticket.address+"</td><td>"+ticket.package+"</td></tr>";
             })
             tableHeader+=tableData;
             tabelWithTickets.innerHTML=tableHeader;

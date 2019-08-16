@@ -1,5 +1,13 @@
-import {fromEvent, combineLatest,interval} from "rxjs";
-import {map,debounceTime,switchMap,withLatestFrom} from "rxjs/operators";
+import {
+    fromEvent,
+    combineLatest
+    } from "rxjs";
+import {
+    map,
+    debounceTime,
+    switchMap,
+    withLatestFrom
+} from "rxjs/operators";
 
 import { FlightsService } from "../../Services/flightsService";
 import {RouterComponent} from "../../Router/RouterComponent";
@@ -215,6 +223,7 @@ export class MainPage{
         pDepartureDateAndTime.innerHTML=formatedDate+" | "+flight.time;
         flightInfoContainer.appendChild(pDepartureDateAndTime);
         
+        if(flight.availabletickets>10){
         const price=document.createElement("paragraph");
         price.className="infoParagraphFromTo";
         price.innerHTML="Price: "+flight.price+" EUR"
@@ -224,6 +233,18 @@ export class MainPage{
         tickets.className="tickets";
         tickets.innerHTML="Tickets: "+flight.availabletickets
         flightInfoContainer.appendChild(tickets);
+
+        }else{
+            const price=document.createElement("paragraph");
+            price.className="infoParagraphFromTo";
+            price.innerHTML="Price: <del>"+flight.price+"</del>, new price: "+flight.price/2+" EUR (50% off)";
+            flightInfoContainer.appendChild(price);
+
+            const tickets=document.createElement("paragraph");
+            tickets.className="tickets attention";
+            tickets.innerHTML="<span style='color:#CD0000'> Only "+flight.availabletickets+" tickets left!</span>"
+            flightInfoContainer.appendChild(tickets);
+        }
     }
 
     formatDate(date){
@@ -244,7 +265,7 @@ export class MainPage{
         buyTicketContainer.appendChild(buyTicketButton);
     
         buyTicketButton.onclick=(ev)=>{
-            this.router.openTicketPage(flight);
+            this.router.openTicketPage(flight.id);
         }
     }
 

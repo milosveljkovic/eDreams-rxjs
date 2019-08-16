@@ -38,7 +38,7 @@
       "time": "11:50 - 14:10",
       "price": 23,
       "company": "Ryanair",
-      "availabletickets": 0
+      "availabletickets": 6
     },
     {
       "id": "barcelona-london-5",
@@ -48,7 +48,7 @@
       "time": "17:30 - 19:55",
       "price": 39,
       "company": "WizzAir",
-      "availabletickets": 27
+      "availabletickets": 26
     },
     {
       "id": "barcelona-london-6",
@@ -58,7 +58,7 @@
       "time": "14:30 - 17:00",
       "price": 25,
       "company": "Flynas",
-      "availabletickets": 13
+      "availabletickets": 9
     },
     {
       "id": "barcelona-paris-1",
@@ -245,7 +245,7 @@
       "email": "milosmilutinov@gmail.com",
       "phone": "0657752498",
       "cardnumber": "55789521785934",
-      "package": "gold",
+      "package": "silver",
       "ticketprice": 30
     },
     {
@@ -258,7 +258,7 @@
       "email": "milosmilutinov@gmail.com",
       "phone": "0657752498",
       "cardnumber": "55789521785934",
-      "package": "gold",
+      "package": "silver",
       "ticketprice": 30
     },
     {
@@ -271,7 +271,7 @@
       "email": "milosmilutinov@gmail.com",
       "phone": "0657752498",
       "cardnumber": "55789521785934",
-      "package": "gold",
+      "package": "silver",
       "ticketprice": 30
     },
     {
@@ -297,7 +297,7 @@
       "email": "milosmilutinov@gmail.com",
       "phone": "0657752498",
       "cardnumber": "55789521785934",
-      "package": "gold",
+      "package": "platinum",
       "ticketprice": 30
     },
     {
@@ -310,7 +310,7 @@
       "email": "milosmilutinov@gmail.com",
       "phone": "0657752498",
       "cardnumber": "55789521785934",
-      "package": "gold",
+      "package": "silver",
       "ticketprice": 30
     },
     {
@@ -349,7 +349,7 @@
       "email": "milosmilutinov@gmail.com",
       "phone": "0657752498",
       "cardnumber": "55789521785934",
-      "package": "gold",
+      "package": "platinum",
       "ticketprice": 30
     },
     {
@@ -362,7 +362,7 @@
       "email": "milosmilutinov@gmail.com",
       "phone": "0657752498",
       "cardnumber": "55789521785934",
-      "package": "gold",
+      "package": "platinum",
       "ticketprice": 30
     },
     {
@@ -375,7 +375,7 @@
       "email": "milosmilutinov@gmail.com",
       "phone": "0657752498",
       "cardnumber": "55789521785934",
-      "package": "gold",
+      "package": "silver",
       "ticketprice": 30
     },
     {
@@ -414,8 +414,73 @@
       "email": "dragmilos@gmail.com",
       "phone": "065458759",
       "cardnumber": "97159267848",
-      "package": "gold",
+      "package": "silver",
       "ticketprice": 69
+    },
+    {
+      "id": 16,
+      "flightId": "barcelona-london-5",
+      "name": "Stevan",
+      "surname": "Velickov",
+      "city": "Krusevac",
+      "address": "Milentijeva 88",
+      "email": "steva@gmail.com",
+      "phone": "0615475236",
+      "cardnumber": "4826851472",
+      "package": "platinum",
+      "ticketprice": 89
+    },
+    {
+      "id": 17,
+      "flightId": "barcelona-london-6",
+      "name": "Marko",
+      "surname": "Nikolic",
+      "city": "Nis",
+      "address": "Vojvode Stepe 4",
+      "email": "marknik@gmail.com",
+      "phone": "064415368",
+      "cardnumber": "1478524863",
+      "package": "platinum",
+      "ticketprice": null
+    },
+    {
+      "id": 18,
+      "flightId": "barcelona-london-6",
+      "name": "Tanja",
+      "surname": "Tosic",
+      "city": "Paracin",
+      "address": "Takovksa 18",
+      "email": "tacitosic@gmail.com",
+      "phone": "063752789",
+      "cardnumber": "9512587531",
+      "package": "platinum",
+      "ticketprice": null
+    },
+    {
+      "id": 19,
+      "flightId": "barcelona-london-6",
+      "name": "Sava",
+      "surname": "Stojanovic",
+      "city": "Beograd",
+      "address": "Krunska 44a",
+      "email": "savica@gmail.com",
+      "phone": "064782415",
+      "cardnumber": "41578524698",
+      "package": "silver",
+      "ticketprice": 45
+    },
+    {
+      "id": 20,
+      "flightId": "barcelona-london-6",
+      "name": "Milana",
+      "surname": "Stojanovic",
+      "city": "Leskovac",
+      "address": "Vojvode Gojka 7",
+      "email": "milanastoj@gmail.com",
+      "phone": "0667852145",
+      "cardnumber": "9632587415",
+      "package": "gold",
+      "ticketprice": 42.5
     }
   ]
 }

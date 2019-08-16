@@ -11,9 +11,9 @@ export class RouterComponent
         mainPage.createMainContainer(document.getElementById("contentContainer"));
     }
 
-    openTicketPage(flight){
+    openTicketPage(flightId){
         var ticketPage=new TicketPage();
-        ticketPage.createTicketPage(flight);
+        ticketPage.createTicketPage(flightId);
     }
 
 }

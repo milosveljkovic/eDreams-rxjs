@@ -1,7 +1,7 @@
-import { range } from 'rxjs';
 import {FlightsService} from '../../Services/flightsService'
 import {TicketsService} from '../../Services/ticketsService';
-import { debounceTime, switchMap } from 'rxjs/operators';
+import {fromEvent, of,merge,range,race} from "rxjs";
+import { debounceTime, switchMap,pairwise,map,scan,filter } from 'rxjs/operators';
 
 export class TicketForm{
     constructor(){
@@ -15,14 +15,24 @@ export class TicketForm{
 
         const ticketFormContainer=document.createElement("div")
         ticketFormContainer.className="ticketFormContainer";
+        ticketFormContainer.id="ticketFormContainer";
         contentContainer.appendChild(ticketFormContainer);
 
         this.createTitle(ticketFormContainer);
         this.createPassengerContainer(ticketFormContainer);
         this.createContactContainer(ticketFormContainer);
-        this.createPackageContainer(ticketFormContainer);
+        this.createPackageContainer(ticketFormContainer,flight);
         this.createCardNumberContainer(ticketFormContainer);
+        
+        const priceContainer=document.createElement("div");
+        priceContainer.id="priceContainer";
+        priceContainer.className="controlContainer centro";
+        ticketFormContainer.appendChild(priceContainer);
+
         this.createButtonContainer(ticketFormContainer,flight);
+
+        //this.radioButtonObservable();
+        //this.combineAllObs();
     }
 
     createTitle(ticketFormContainer){
@@ -110,18 +120,18 @@ export class TicketForm{
         contactContainer.appendChild(inputPhone);
     }
 
-    createPackageContainer(ticketFormContainer){
+    createPackageContainer(ticketFormContainer,flight){
 
         const packagesContainer=document.createElement("div");
         packagesContainer.className="packagesContainer centro";
         ticketFormContainer.appendChild(packagesContainer);
 
         range(1,3)
-        .subscribe(number=>this.createPackages(number,packagesContainer))
+        .subscribe(number=>this.createPackages(number,packagesContainer,flight))
 
     }
 
-    createPackages(packageNumber,packagesContainer){
+    createPackages(packageNumber,packagesContainer,flight){
 
         const packageContainer=document.createElement("div");
         packageContainer.className="packageContainer";
@@ -219,9 +229,14 @@ export class TicketForm{
 
         const radioButtonPackage=document.createElement("input");
         radioButtonPackage.type="radio";
-        radioButtonPackage.id="radioButtonPackage";
+        radioButtonPackage.id="radioButtonPackage"+packageNumber;
         radioButtonPackage.name="package";
         radioButtonPackage.value=price;
+
+        radioButtonPackage.onclick=(ev)=>{
+            this.radioButtonObservable(flight);
+        }
+
         packageContainer.appendChild(radioButtonPackage);
     }
 
@@ -254,11 +269,17 @@ export class TicketForm{
         buttonBuyTicket.className="buttonBuyTicket font";
         buttonBuyTicketContainer.appendChild(buttonBuyTicket);
 
+        var ticketprice=flight.price;
+        if(Number.parseInt(flight.availabletickets)<=10){
+            ticketprice/=2;
+        }
+
         flight:{
             flight.availabletickets-=1;
         }
 
         buttonBuyTicket.onclick=(ev)=>{
+
             var packagePrice;
             document.getElementsByName("package").forEach(radiobtn=>{
                 if(radiobtn.checked===true){packagePrice=radiobtn.value}
@@ -278,7 +299,7 @@ export class TicketForm{
                 phone:document.getElementById("inputPhone").value,
                 cardnumber:document.getElementById("inputCardNumber").value,
                 package:packageType,
-                ticketprice:Number.parseInt(flight.price)+Number.parseInt(packagePrice)
+                ticketprice:ticketprice+Number.parseInt(packagePrice)
             }
 
             this.flightService.updateFlight(flight);
@@ -286,6 +307,77 @@ export class TicketForm{
                 this.ticketService.addTicket(ticket);
             },1000);
             
+            this.createSuccessContainer();
+
         }
     }
+
+    createSuccessContainer(){
+        const ticketFormContainer=document.getElementById("ticketFormContainer");
+        ticketFormContainer.innerHTML="";
+
+        const successContainer=document.createElement("div");
+        successContainer.className="controlContainer centro";
+        ticketFormContainer.appendChild(successContainer);
+
+        const successMessage=document.createElement("h2");
+        successMessage.innerHTML="Success! Check your email for ticket.";
+        successMessage.className="success font";
+        successContainer.appendChild(successMessage);
+    }
+
+    radioButtonObservable1(){
+        const radioButton=document.getElementById("radioButtonPackage1");
+        return fromEvent(radioButton,"input").pipe(
+            map(input=>input.target.value));
+    }
+
+    radioButtonObservable2(){
+        const radioButton=document.getElementById("radioButtonPackage2");
+        return fromEvent(radioButton,"input").pipe(
+            map(input=>input.target.value));
+    }
+
+    radioButtonObservable3(){
+        const radioButton=document.getElementById("radioButtonPackage3");
+        return fromEvent(radioButton,"input").pipe(
+            map(input=>input.target.value));
+    }
+
+    radioButtonObservable(flight){
+        // const radioButton=document.getElementsByName("package");
+        // const stream=fromEvent(radioButton,"input").pipe(
+        //     map(input=>input.target.value)).subscribe(x=>console.log(x))
+
+        // merge(stream,of(20)).pipe(
+        //     pairwise()
+        // ).subscribe(x=>console.log(x));
+        var ticketprice=flight.price;
+        if(Number.parseInt(flight.availabletickets)<=10){
+            ticketprice/=2;
+        }
+
+        merge(
+        race(
+            this.radioButtonObservable1(),
+            this.radioButtonObservable2(),
+            this.radioButtonObservable3()
+        ),of(ticketprice))
+        .pipe(
+            pairwise(),
+            filter(pair=>pair[0]!=pair[1])
+        ).subscribe(priceAndPackage=>this.createPriceContainer(priceAndPackage))
+    }
+
+    createPriceContainer(priceAndPackage){
+        const priceContainer=document.getElementById("priceContainer");
+        priceContainer.innerHTML="";
+
+        const paragraphPrice=document.createElement("p");
+        paragraphPrice.innerHTML="Flight price: "+priceAndPackage[0]+" EUR | Package price: "+priceAndPackage[1]+" EUR";
+        paragraphPrice.className="paragraph font";
+        priceContainer.appendChild(paragraphPrice);
+
+    }
+
 }

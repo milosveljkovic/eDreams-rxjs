@@ -43,3 +43,13 @@
     height: 40px;
     margin: 5px;
 }
+
+.success
+{
+    background-color: rgb(49, 189, 49);
+}
+
+.textCentered
+{
+    text-align: center;
+}
