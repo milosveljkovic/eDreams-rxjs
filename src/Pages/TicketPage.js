@@ -1,11 +1,8 @@
 import {zip} from "rxjs";
-import {map,sampleTime,debounceTime,switchMap,withLatestFrom,takeWhile,take} from "rxjs/operators";
 import { FlightsService } from "../../Services/flightsService";
 import {TicketsService} from '../../Services/ticketsService';
 import {MainPage} from './MainPage';
 import {TicketForm} from './TicketForm';
-
-import {RouterComponent} from "../../Router/RouterComponent";
 
 export class TicketPage{
     constructor(){

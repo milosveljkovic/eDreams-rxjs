@@ -1,13 +1,5 @@
-import {
-    fromEvent,
-    combineLatest
-    } from "rxjs";
-import {
-    map,
-    debounceTime,
-    switchMap,
-    withLatestFrom
-} from "rxjs/operators";
+import {fromEvent,combineLatest} from "rxjs";
+import { map,debounceTime,switchMap,withLatestFrom} from "rxjs/operators";
 
 import { FlightsService } from "../../Services/flightsService";
 import {RouterComponent} from "../../Router/RouterComponent";
@@ -22,10 +14,6 @@ export class MainPage{
     createMainContainer(contentContainer){
 
         contentContainer.innerHTML="";
-
-        //const source = interval(30);
-        //output: 0,1,2,3,4,5....
-        //source.subscribe(val => console.log(val));
 
         const mainContentContainer=document.createElement("div");
         mainContentContainer.className="mainContentContainer";
@@ -141,17 +129,17 @@ export class MainPage{
         const from=document.getElementById("inputFrom");
         const to=document.getElementById("inputTo");
       
-        var streamInputFrom=fromEvent(from,"input")
+        var streamInputFrom$=fromEvent(from,"input")
         .pipe(
           map(input=>input.target.value));
       
-        var streamInputTo=fromEvent(to,"input")
+        var streamInputTo$=fromEvent(to,"input")
         .pipe(
           debounceTime(1000),
           map(input=>input.target.value)
         );
       
-        return combineLatest(streamInputFrom,streamInputTo);
+        return combineLatest(streamInputFrom$,streamInputTo$);
     }
       
     dateOfDepartureObservable(){

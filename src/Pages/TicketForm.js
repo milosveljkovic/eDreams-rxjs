@@ -1,7 +1,7 @@
 import {FlightsService} from '../../Services/flightsService'
 import {TicketsService} from '../../Services/ticketsService';
-import {fromEvent, of,merge,range,race} from "rxjs";
-import { debounceTime, switchMap,pairwise,map,scan,filter } from 'rxjs/operators';
+import {fromEvent, of,merge,range,race,Subject} from "rxjs";
+import {pairwise,map,filter,sampleTime} from 'rxjs/operators';
 
 export class TicketForm{
     constructor(){
@@ -279,37 +279,62 @@ export class TicketForm{
         }
 
         buttonBuyTicket.onclick=(ev)=>{
+            if(!this.handleError()){
+                var packagePrice;
+                document.getElementsByName("package").forEach(radiobtn=>{
+                    if(radiobtn.checked===true){packagePrice=radiobtn.value}
+                })
+                var packageType=Number.parseInt(packagePrice)===20?
+                "silver":Number.parseInt(packagePrice)===30?
+                "gold":"platinum";
 
-            var packagePrice;
-            document.getElementsByName("package").forEach(radiobtn=>{
-                if(radiobtn.checked===true){packagePrice=radiobtn.value}
-            })
-            var packageType=Number.parseInt(packagePrice)===20?
-            "silver":Number.parseInt(packagePrice)===30?
-            "gold":"platinum";
+                var ticket={
+                    id:0,
+                    flightId:flight.id,
+                    name:document.getElementById("inputName").value,
+                    surname:document.getElementById("inputSurname").value,
+                    city:document.getElementById("inputCity").value,
+                    address:document.getElementById("inputAddress").value,
+                    email:document.getElementById("inputEmail").value,
+                    phone:document.getElementById("inputPhone").value,
+                    cardnumber:document.getElementById("inputCardNumber").value,
+                    package:packageType,
+                    ticketprice:ticketprice+Number.parseInt(packagePrice)
+                }
 
-            var ticket={
-                id:0,
-                flightId:flight.id,
-                name:document.getElementById("inputName").value,
-                surname:document.getElementById("inputSurname").value,
-                city:document.getElementById("inputCity").value,
-                address:document.getElementById("inputAddress").value,
-                email:document.getElementById("inputEmail").value,
-                phone:document.getElementById("inputPhone").value,
-                cardnumber:document.getElementById("inputCardNumber").value,
-                package:packageType,
-                ticketprice:ticketprice+Number.parseInt(packagePrice)
+                this.flightService.updateFlight(flight);
+                setTimeout(()=>{
+                    this.ticketService.addTicket(ticket);
+                },1000);
+                
+                this.createSuccessContainer();
+            }else{
+                this.alertAboutEmptyFields();
             }
-
-            this.flightService.updateFlight(flight);
-            setTimeout(()=>{
-                this.ticketService.addTicket(ticket);
-            },1000);
             
-            this.createSuccessContainer();
 
         }
+    }
+
+    alertAboutEmptyFields(){
+        var alertSubject=new Subject();
+        alertSubject.pipe(
+          sampleTime(1000)
+        ).subscribe(message=>alert(message));
+
+        alertSubject.next("Please fill in all fields!");
+      }
+
+    handleError(){
+        var allInputs=document.getElementsByClassName("input");
+        var arr = Array.prototype.slice.call( allInputs, 0 );
+
+        var isThereAnyEmptyField=false;
+        
+        arr.map(input=>{
+            if(input.value.length===0){isThereAnyEmptyField= true;}
+        })
+        return isThereAnyEmptyField;
     }
 
     createSuccessContainer(){
@@ -345,13 +370,6 @@ export class TicketForm{
     }
 
     radioButtonObservable(flight){
-        // const radioButton=document.getElementsByName("package");
-        // const stream=fromEvent(radioButton,"input").pipe(
-        //     map(input=>input.target.value)).subscribe(x=>console.log(x))
-
-        // merge(stream,of(20)).pipe(
-        //     pairwise()
-        // ).subscribe(x=>console.log(x));
         var ticketprice=flight.price;
         if(Number.parseInt(flight.availabletickets)<=10){
             ticketprice/=2;
