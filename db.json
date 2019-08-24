@@ -48,7 +48,7 @@
       "time": "17:30 - 19:55",
       "price": 39,
       "company": "WizzAir",
-      "availabletickets": 26
+      "availabletickets": 25
     },
     {
       "id": "barcelona-london-6",
@@ -507,6 +507,19 @@
       "cardnumber": "1478523698",
       "package": "gold",
       "ticketprice": 42.5
+    },
+    {
+      "id": 23,
+      "flightId": "barcelona-london-5",
+      "name": "Predrag",
+      "surname": "Antic",
+      "city": "Vranje",
+      "address": "Srpskih Vladara 16",
+      "email": "predraant@gmail.com",
+      "phone": "0659874123",
+      "cardnumber": "2247851478",
+      "package": "platinum",
+      "ticketprice": 89
     }
   ]
 }

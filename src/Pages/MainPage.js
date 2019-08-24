@@ -104,11 +104,6 @@ export class MainPage{
     ///////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
 
     searchFlights(){
 
@@ -242,15 +237,15 @@ export class MainPage{
 
     createButtonContainer(buttonContainer,flight){
       
-        const buyTicketContainer=document.createElement("div");
-        buyTicketContainer.className="buyTicketContainer";
-        buttonContainer.appendChild(buyTicketContainer);
+        // const buyTicketContainer=document.createElement("div");
+        // buyTicketContainer.className="buyTicketContainer";
+        // buttonContainer.appendChild(buyTicketContainer);
     
         const buyTicketButton=document.createElement("button");
         buyTicketButton.id=flight.id;
         buyTicketButton.innerHTML="Buy Ticket";
-        buyTicketButton.className="buttonDesign font";
-        buyTicketContainer.appendChild(buyTicketButton);
+        buyTicketButton.className="buttonDesign font infoContainerButton";
+        buttonContainer.appendChild(buyTicketButton);
     
         buyTicketButton.onclick=(ev)=>{
             this.router.openTicketPage(flight.id);

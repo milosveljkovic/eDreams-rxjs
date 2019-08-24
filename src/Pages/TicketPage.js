@@ -97,7 +97,7 @@ export class TicketPage{
             spanParagraph.appendChild(pBuyTicket);
         }else{
             const pBuyTicket=document.createElement("p")
-            pBuyTicket.className="pBookTicket";
+            pBuyTicket.className="font";
             pBuyTicket.innerHTML="You want to buy ticket for this flight? Go on Continue!";
             spanParagraph.appendChild(pBuyTicket);
 
@@ -106,7 +106,7 @@ export class TicketPage{
             buyButtonContainer.appendChild(spanButton);
 
             const continueButton=document.createElement("button");
-            continueButton.className="buttonDesign";
+            continueButton.className="buttonDesign font";
             continueButton.innerHTML="Continue";
             spanButton.appendChild(continueButton);
 

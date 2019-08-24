@@ -159,7 +159,7 @@ export class TicketForm{
                 break;
             case 2:
                 packageTitle="2. Gold";
-                backgroundColor="#CFB53B";
+                backgroundColor="#EFD03B";
                 extraLuggage="25kg";
                 freeWiFi=false;
                 food=true;
@@ -169,7 +169,7 @@ export class TicketForm{
                 break;
             case 3:
                 packageTitle="3. Platinum";
-                backgroundColor="#1168bf";
+                backgroundColor="#3967BC";
                 extraLuggage="60kg";
                 freeWiFi=true;
                 food=true;

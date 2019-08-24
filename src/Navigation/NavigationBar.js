@@ -20,8 +20,4 @@ export function createNavigationBar(){
 
     navComponent.appendChild(navigateToHome);
 
-    const pHome=document.createElement("p");
-    pHome.innerHTML="HOME";
-    navigationBarContainer.appendChild(pHome);
-
 }
