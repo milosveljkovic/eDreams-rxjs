@@ -121,13 +121,15 @@
 /*sadrzi niz letova*/
 .flightsContainer
 {
-    height: 250px;
+    /* height: 250px; */
     /* overflow-y: auto;
     overflow-x: hidden; */
     width: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background-image: url("https://s1.1zoom.me/b5062/263/Passenger_Airplanes_Evening_Flight_Asphalt_Takeoff_516323_3840x2160.jpg");
+    background-size: cover
 }
 
 /*kontejner sadrzi sliku i info*/
@@ -141,6 +143,7 @@
   border-color: rgb(69, 148, 250) rgb(69, 148, 250) rgb(69, 148, 250) rgb(69, 148, 250);
   border-radius: 5px;
   border-width: 2px 2px 2px 20px;
+  background-color: white;
 }
 
 .flightInfoContainer
